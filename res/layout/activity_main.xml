@@ -5,10 +5,75 @@
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/deliveryTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:layout_marginTop="70dp"
+        android:text="12:48"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/insertTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deliveryTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="time" >
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSpins"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/insertTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+        
+        <Spinner
+            android:id="@+id/spinnerBank1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+       
+         <Spinner
+            android:id="@+id/spinnerBank2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linearLayoutButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutSpins"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonFind"
+            style="@style/ButtonText"
+            android:layout_width="120dp"
+            android:background="@drawable/button_black"
+            android:text="@string/buttonFind"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/buttonReset"
+            style="@style/ButtonText"
+            android:layout_width="120dp"
+            android:background="@drawable/button_black"
+            android:text="@string/buttonReset"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+
+
+   
 
 </RelativeLayout>
