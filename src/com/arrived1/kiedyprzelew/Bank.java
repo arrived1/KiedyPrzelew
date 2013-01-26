@@ -12,9 +12,11 @@ public class Bank {
 	
 	public Bank(String bankName) {
 		String[] tmp = bankName.split(",");
+		
 		BankName = tmp[0];
-		TimeOut = setVector(tmp[1]);
+		TimeOut = setVector(tmp[1]);		
 		TimeIn = setVector(tmp[2]);
+//		System.out.println("DUPA0 "  + ") |" + tmp[0] + "|" + tmp[1] + "|" + tmp[2]);
 	}
 	
 	//TODO: implement me
@@ -37,17 +39,19 @@ public class Bank {
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 		
 		try {
-			//TODO: it wont works with 2, 3, 4?
-			for(int i = 0; i < 4; i++) {
-				Date time = timeFormat.parse(times[i]);
-				vec.addElement(time);
+			for(int i = 0; i < times.length; i++) {
+				if(times[i].length() > 0) {
+					Date time = timeFormat.parse(times[i]);
+					vec.addElement(time);
+//					System.out.println("DUPA1 " + i + ") |" + times[i] + "| Koniec, size: |" + times[i].length());
+				}
 			}
 		} 
 		catch (ParseException e) {
 			// TODO Auto-generated catch block
+			System.out.println("DUPA wyjatek");
 			e.printStackTrace();
 		}
-		
 		return vec;
 	}
 }

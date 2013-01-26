@@ -35,7 +35,7 @@ public class BankDatabase {
 			while ((str = reader.readLine()) != null) {	
 				Bank bank = new Bank(str);
 				banks.addElement(bank);
-				System.out.println("DUPA, " + " Bank name: " + bank.getName());
+//				System.out.println("DUPA, " + " Bank name: " + bank.getName());
 			}				
 		}		
 		is.close();		
