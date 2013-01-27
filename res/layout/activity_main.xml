@@ -10,22 +10,21 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textSize="40sp"
+        android:textSize="45sp"
         android:text="12:48"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+     <Button
         android:id="@+id/insertTime"
+        style="@style/ButtonText"
+        android:background="@drawable/button_black"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/deliveryTime"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="time" >
-
-        <requestFocus />
-    </EditText>
+        android:onClick="showTimePickerDialog"
+        android:text="@string/buttonSetTime" />
 
     <LinearLayout
         android:id="@+id/linearLayoutSpins"
@@ -38,13 +37,15 @@
         
         <Spinner
             android:id="@+id/spinnerBank1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
        
          <Spinner
             android:id="@+id/spinnerBank2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
     
@@ -73,5 +74,7 @@
             android:text="@string/buttonReset"
             android:layout_marginTop="20dp" />
     </LinearLayout>
+
+   
 
 </RelativeLayout>
