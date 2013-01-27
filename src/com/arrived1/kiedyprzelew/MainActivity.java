@@ -2,7 +2,9 @@ package com.arrived1.kiedyprzelew;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -21,4 +23,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public void showTimePickerDialog(View v) {
+	    DialogFragment newFragment = new TimePickerFragment();
+	    newFragment.show(getFragmentManager(), "timePicker");
+	}
 }
