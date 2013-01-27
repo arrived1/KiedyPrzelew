@@ -49,4 +49,12 @@ public class BankDatabase {
 			return banks.elementAt(i).getName();
 		return "Error";
 	}
+	
+	public Bank findBank(String name) {
+		for(int i  = 0; i < banks.size(); i++) {
+			if(banks.elementAt(i).getName() == name)
+				return banks.elementAt(i);
+		}
+		return null;
+	}
 }

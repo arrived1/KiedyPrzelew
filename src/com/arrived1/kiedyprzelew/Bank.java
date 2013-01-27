@@ -15,10 +15,27 @@ public class Bank {
 		TimeOut = setVector(tmp[1]);		
 		TimeIn = setVector(tmp[2]);
 	}
-	
-	//TODO: implement me
+
 	public Date getNearestIncomingTime(Date t) {
-		return t;
+		Date result = new Date(24, 60);
+		
+		for(int i = 0; i < TimeIn.size(); i++) {
+			Date diff = new Date(TimeIn.elementAt(i).h - t.h, TimeIn.elementAt(i).h - t.m);
+
+			if(t.lessThan(TimeIn.elementAt(0))) {
+				if(diff.lessThan(result)) {
+					result = diff;
+				}
+			}
+			else if(t.greaterThan(TimeIn.elementAt(TimeIn.size() - 1))) {
+				if(diff.greaterThan(result)) {
+					result = diff;
+				}
+			}
+			else 
+				result = diff;	
+		}
+		return result;
 	}
 	
 	public Date getNearestOutgoingTime(Date t) throws ParseException {
