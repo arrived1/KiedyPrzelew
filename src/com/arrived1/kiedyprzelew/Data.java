@@ -37,4 +37,8 @@ class Date {
 			return true;
 		return false;
 	}
+	
+	public String toString() {
+		return Integer.toString(h) + ":" + Integer.toString(m);
+	}
 }

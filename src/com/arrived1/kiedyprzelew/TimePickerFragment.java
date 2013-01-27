@@ -10,7 +10,7 @@ import android.text.format.DateFormat;
 import android.widget.TimePicker;
 
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
-	private Date date;
+	private Date date = new Date();
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 	}
 	
 	public Date getDate() {
+		System.out.println("DUPA, Ustawilem date na: " + date.toString());
 		return date;
 	}
 }

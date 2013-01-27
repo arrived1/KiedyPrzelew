@@ -11,9 +11,13 @@ public class Bank {
 	public Bank(String bankName) {
 		String[] tmp = bankName.split(",");
 		
+//		System.out.println("DUPA, Jestem w klasie Button");
+		
 		BankName = tmp[0];
 		TimeOut = setVector(tmp[1]);		
 		TimeIn = setVector(tmp[2]);
+		
+//		System.out.println("DUPA, W klasie button sparsowalem nazwy abnkow i godziny przelewow");
 	}
 
 	public Date getNearestIncomingTime(Date t) {

@@ -13,18 +13,23 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
-
+	private Date paymentTime = new Date();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		System.out.println("DUPA, Zbudowalem baze bankow");
 		BankDatabase banks = new BankDatabase(this);
-		addItemsToSpinnersList(banks, R.id.spinnerBank1, "Przelew z banku");
-		addItemsToSpinnersList(banks, R.id.spinnerBank2, "Przelew do banku");
 		
-		addListenerOnButtonSearch();
-		addListenerOnButtonReset();
+		addItemsToSpinnersList(banks, R.id.spinnerBank1, "Wybierz bank");
+		addItemsToSpinnersList(banks, R.id.spinnerBank2, "Wybierz bank");
+		System.out.println("DUPA, Zbudowalem spinboksy");
+		
+		addListenerOnButtonSearch(banks, paymentTime);
+		System.out.println("DUPA, zawolalem listenera szukaj");
+//		addListenerOnButtonReset();
 	}
 	
 	private void addItemsToSpinnersList(BankDatabase banks, int spinId, String initString) {
@@ -40,9 +45,12 @@ public class MainActivity extends Activity {
 		spinn.setAdapter(dataAdapter);
 	}
 
-	public void addListenerOnButtonSearch() {
+	public void addListenerOnButtonSearch(BankDatabase banks, Date paymentTime) {
+		System.out.println("DUPA, Ktos wcisnal przycisk szukaj");
 		final Button button = (Button)findViewById(R.id.buttonFind);
-		button.setOnClickListener(new ButtonFind(this, R.id.buttonFind));
+		
+		System.out.println("DUPA, Buduje obiekt ButtonFind, zaraz bede wolal konstruktor");
+		button.setOnClickListener(new ButtonFind(this, R.id.buttonFind, banks, paymentTime));
 	}
 	
 	public void addListenerOnButtonReset() {
@@ -53,6 +61,8 @@ public class MainActivity extends Activity {
 	public void showTimePickerDialog(View v) {
 	    DialogFragment newFragment = new TimePickerFragment();
 	    newFragment.show(getFragmentManager(), "timePicker");
+	    
+	    paymentTime = ((TimePickerFragment)newFragment).getDate();
 	}
 	
 	@Override
