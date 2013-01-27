@@ -21,7 +21,7 @@ public class BankDatabase {
 			ReadFromFile();
 		} 
 		catch (IOException e) {
-			Toast.makeText(actv.getApplicationContext(), "Problems: " + e.getMessage(), Toast.LENGTH_LONG).show();
+			Toast.makeText(actv.getApplicationContext(), "Problems: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 		}
 	}
 	
@@ -35,7 +35,6 @@ public class BankDatabase {
 			while ((str = reader.readLine()) != null) {	
 				Bank bank = new Bank(str);
 				banks.addElement(bank);
-//				System.out.println("DUPA, " + " Bank name: " + bank.getName());
 			}				
 		}		
 		is.close();		
