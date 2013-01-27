@@ -40,4 +40,14 @@ public class BankDatabase {
 		}		
 		is.close();		
 	}
+	
+	public int size() {
+		return banks.size();
+	}
+	
+	public String getBankName(int i) {
+		if(i < size())
+			return banks.elementAt(i).getName();
+		return "Error";
+	}
 }

@@ -1,11 +1,16 @@
 package com.arrived1.kiedyprzelew;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
@@ -15,9 +20,24 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		BankDatabase banks = new BankDatabase(this);
+		addItemsToSpinnersList(banks, R.id.spinnerBank1, "Przelew z banku");
+		addItemsToSpinnersList(banks, R.id.spinnerBank2, "Przelew do banku");
 		
 		addListenerOnButtonSearch();
 		addListenerOnButtonReset();
+	}
+	
+	private void addItemsToSpinnersList(BankDatabase banks, int spinId, String initString) {
+		List<String> list = new ArrayList<String>();
+		list.add(initString);
+		for(int i = 0; i < banks.size(); i++)
+			list.add(banks.getBankName(i));
+		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		final Spinner spinn = (Spinner)findViewById(spinId);
+		spinn.setAdapter(dataAdapter);
 	}
 
 	public void addListenerOnButtonSearch() {

@@ -18,6 +18,7 @@
         android:id="@+id/insertTime"
         style="@style/ButtonText"
         android:background="@drawable/button_black"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/deliveryTime"
@@ -36,13 +37,15 @@
         
         <Spinner
             android:id="@+id/spinnerBank1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
        
          <Spinner
             android:id="@+id/spinnerBank2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
     
