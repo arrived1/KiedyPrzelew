@@ -4,28 +4,6 @@ import java.text.ParseException;
 import java.util.Vector;
 
 public class Bank {
-	
-	class Date {
-		public int h;
-		public int m;
-		
-		public Date() {
-			this.h = 0;
-			this.m = 0;
-		}
-		
-		public Date(int h, int m) {
-			this.h = h;
-			this.m = m;
-		}
-		
-		public Date(String t) {
-			String[] hourAndMin = t.split(":");
-			this.h = Integer.parseInt(hourAndMin[0]);
-			this.m = Integer.parseInt(hourAndMin[1]);
-		}
-	}
-
 	private String BankName = "";
 	private Vector<Date> TimeOut = new Vector<Date>();
 	private Vector<Date> TimeIn = new Vector<Date>();
@@ -43,17 +21,24 @@ public class Bank {
 		return t;
 	}
 	
-	//TODO: implement me	
 	public Date getNearestOutgoingTime(Date t) throws ParseException {
-		Date result = new Date();
+		Date result = new Date(24, 60);
 		
 		for(int i = 0; i < TimeOut.size(); i++) {
 			Date diff = new Date(TimeOut.elementAt(i).h - t.h, TimeOut.elementAt(i).h - t.m);
 
-			//TODO: Co gdy sa rowne
-			if((diff.h > result.h) && (diff.h == result.h && diff.m > result.m)) {
-				result = diff;
+			if(t.lessThan(TimeOut.elementAt(0))) {
+				if(diff.lessThan(result)) {
+					result = diff;
+				}
 			}
+			else if(t.greaterThan(TimeOut.elementAt(TimeOut.size() - 1))) {
+				if(diff.greaterThan(result)) {
+					result = diff;
+				}
+			}
+			else 
+				result = diff;	
 		}
 		return result;
 	}

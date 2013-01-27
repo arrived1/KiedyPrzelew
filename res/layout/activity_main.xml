@@ -39,13 +39,13 @@
             android:id="@+id/spinnerBank1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="10dp" />
        
          <Spinner
             android:id="@+id/spinnerBank2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
     
@@ -74,7 +74,5 @@
             android:text="@string/buttonReset"
             android:layout_marginTop="20dp" />
     </LinearLayout>
-
-   
 
 </RelativeLayout>

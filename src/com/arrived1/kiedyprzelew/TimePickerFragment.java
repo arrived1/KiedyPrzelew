@@ -10,8 +10,7 @@ import android.text.format.DateFormat;
 import android.widget.TimePicker;
 
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
-	private int hour = 0;
-	private int min = 0;
+	private Date date;
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -26,7 +25,10 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 	}
 	
 	public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-		hour = hourOfDay;
-		min = minute;
+		date = new Date(hourOfDay, minute);
+	}
+	
+	public Date getDate() {
+		return date;
 	}
 }
