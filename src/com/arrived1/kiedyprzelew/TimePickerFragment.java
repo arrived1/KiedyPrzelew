@@ -26,10 +26,11 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 	
 	public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 		date = new Date(hourOfDay, minute);
+		System.out.println("DUPA, Ustawilem czas przelewu : " + date.toString());
 	}
 	
 	public Date getDate() {
-		System.out.println("DUPA, Ustawilem date na: " + date.toString());
+		System.out.println("DUPA, Zwracam date : " + date.toString());
 		return date;
 	}
 }

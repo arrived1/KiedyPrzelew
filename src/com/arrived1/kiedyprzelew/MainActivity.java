@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	private Date paymentTime = new Date();
+	private Date paymentTime;
+	private DialogFragment newFragment;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +28,10 @@ public class MainActivity extends Activity {
 		addItemsToSpinnersList(banks, R.id.spinnerBank1, "Wybierz bank");
 		addItemsToSpinnersList(banks, R.id.spinnerBank2, "Wybierz bank");
 		System.out.println("DUPA, Zbudowalem spinboksy");
-		
+
 		addListenerOnButtonSearch(banks, paymentTime);
 		System.out.println("DUPA, zawolalem listenera szukaj");
 //		addListenerOnButtonReset();
-	}
-	
-	private void addItemsToSpinnersList(BankDatabase banks, int spinId, String initString) {
-		List<String> list = new ArrayList<String>();
-		list.add(initString);
-		for(int i = 0; i < banks.size(); i++)
-			list.add(banks.getBankName(i));
-		
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
-		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		
-		final Spinner spinn = (Spinner)findViewById(spinId);
-		spinn.setAdapter(dataAdapter);
 	}
 
 	public void addListenerOnButtonSearch(BankDatabase banks, Date paymentTime) {
@@ -59,7 +48,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void showTimePickerDialog(View v) {
-	    DialogFragment newFragment = new TimePickerFragment();
+	    newFragment = new TimePickerFragment();
 	    newFragment.show(getFragmentManager(), "timePicker");
 	    
 	    paymentTime = ((TimePickerFragment)newFragment).getDate();
@@ -71,5 +60,25 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+	
+	public Date getePaymentTime() {
+		if(paymentTime == new Date()) {
+			Toast.makeText(getApplicationContext(), "Wpisz godzine przelewu!", Toast.LENGTH_SHORT).show();
+			paymentTime = new Date();
+		}
+		return paymentTime;
+	}
 
+	private void addItemsToSpinnersList(BankDatabase banks, int spinId, String initString) {
+		List<String> list = new ArrayList<String>();
+		list.add(initString);
+		for(int i = 0; i < banks.size(); i++)
+			list.add(banks.getBankName(i));
+		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		final Spinner spinn = (Spinner)findViewById(spinId);
+		spinn.setAdapter(dataAdapter);
+	}
 }

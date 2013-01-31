@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 //import android.widget.Toast;
+import android.widget.Toast;
 
 public class ButtonFind extends MyButton {
 	private BankDatabase banks;
@@ -19,12 +20,14 @@ public class ButtonFind extends MyButton {
 		this.banks = banks_;
 		System.out.println("DUPA, Konstruktor w klasie ButtonFind, banki gotowe");
 		
-		//TODO: za wczesnie dostaje czas przelewu
-		this.paymentTime = paymentTime_;
-		System.out.println("DUPA, Otrzymalem czas przelewu: " + paymentTime.toString());
+
+		
 	}
 	
 	public void onClick(View arg0) {
+		//TODO: za wczesnie dostaje czas przelewu
+		this.paymentTime = ((MainActivity) actv).getePaymentTime();
+		System.out.println("DUPA, Otrzymalem czas przelewu: " + paymentTime.toString());
 		
 		Spinner spinn1 = (Spinner)actv.findViewById(R.id.spinnerBank1);
 		String zBankuNazwa = spinn1.getSelectedItem().toString();
@@ -47,6 +50,7 @@ public class ButtonFind extends MyButton {
 			pokazCzas.setText(doBankuPrzychodzacy.toString());
 		} 
 		catch (ParseException e) {
+			Toast.makeText(actv.getApplicationContext(), "Wybierz bank!", Toast.LENGTH_SHORT).show();
 			System.out.println("DUPA, WYJATEK!!!!!: ");
 			e.printStackTrace();
 		}		
