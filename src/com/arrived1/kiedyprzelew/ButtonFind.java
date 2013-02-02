@@ -26,34 +26,33 @@ public class ButtonFind extends MyButton {
 	
 	public void onClick(View arg0) {
 		//TODO: za wczesnie dostaje czas przelewu
-		this.paymentTime = ((MainActivity) actv).getePaymentTime();
-		System.out.println("DUPA, Otrzymalem czas przelewu: " + paymentTime.toString());
 		
-		Spinner spinn1 = (Spinner)actv.findViewById(R.id.spinnerBank1);
-		String zBankuNazwa = spinn1.getSelectedItem().toString();
-		Bank zBanku = banks.findBank(zBankuNazwa);
-		System.out.println("DUPA, Pobieram dane z pierwszego Spinboxa, nazwaBanku: " + zBankuNazwa);
 		
-		Spinner spinn2 = (Spinner)actv.findViewById(R.id.spinnerBank1);
-		String doBankuNazwa = spinn2.getSelectedItem().toString();
-		Bank doBanku = banks.findBank(doBankuNazwa);
-		System.out.println("DUPA, Pobieram dane z drugiego Spinboxa, nazwaBanku: " + doBankuNazwa);
-		
-		try {
-			Date zBankuWychodzacy = zBanku.getNearestOutgoingTime(paymentTime);
-			System.out.println("DUPA, Czas wychodzacej kasy: " + zBankuWychodzacy.toString());
-			
-			Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
-			System.out.println("DUPA, Czas otrzymanje kasy: " + doBankuPrzychodzacy.toString());
-			
-			TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
-			pokazCzas.setText(doBankuPrzychodzacy.toString());
-		} 
-		catch (ParseException e) {
-			Toast.makeText(actv.getApplicationContext(), "Wybierz bank!", Toast.LENGTH_SHORT).show();
-			System.out.println("DUPA, WYJATEK!!!!!: ");
-			e.printStackTrace();
-		}		
+//		Spinner spinn1 = (Spinner)actv.findViewById(R.id.spinnerBank1);
+//		String zBankuNazwa = spinn1.getSelectedItem().toString();
+//		Bank zBanku = banks.findBank(zBankuNazwa);
+//		System.out.println("DUPA, Pobieram dane z pierwszego Spinboxa, nazwaBanku: " + zBankuNazwa);
+//		
+//		Spinner spinn2 = (Spinner)actv.findViewById(R.id.spinnerBank1);
+//		String doBankuNazwa = spinn2.getSelectedItem().toString();
+//		Bank doBanku = banks.findBank(doBankuNazwa);
+//		System.out.println("DUPA, Pobieram dane z drugiego Spinboxa, nazwaBanku: " + doBankuNazwa);
+//		
+//		try {
+//			Date zBankuWychodzacy = zBanku.getNearestOutgoingTime(paymentTime);
+//			System.out.println("DUPA, Czas wychodzacej kasy: " + zBankuWychodzacy.toString());
+//			
+//			Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
+//			System.out.println("DUPA, Czas otrzymanje kasy: " + doBankuPrzychodzacy.toString());
+//			
+//			TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
+//			pokazCzas.setText(doBankuPrzychodzacy.toString());
+//		} 
+//		catch (ParseException e) {
+//			Toast.makeText(actv.getApplicationContext(), "Wybierz bank!", Toast.LENGTH_SHORT).show();
+//			System.out.println("DUPA, WYJATEK!!!!!: ");
+//			e.printStackTrace();
+//		}		
 		
 		
 //		Toast.makeText(actv.getApplicationContext(), "Dziala, button Szukaj!", Toast.LENGTH_SHORT).show(); 
