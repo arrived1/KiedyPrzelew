@@ -6,7 +6,10 @@
 	
     <string name="buttonFind">Znajdź</string>
     <string name="buttonReset">Reset</string>
-    <string name="buttonSetTime">Czas wysłania</string>
+    
+    <string name="deliveryTimeDescribition">Czas otrzymania przelewu:</string>
+    <string name="insertTimeeDescribition">Czas wysłania przelewu:</string>
+    <string name="spinnerBankDescribition">Wybierz bank:</string>
     
 	<style name="ButtonText">
 	    <item name="android:layout_width">fill_parent</item>

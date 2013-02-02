@@ -1,81 +1,106 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
 
-    <LinearLayout
-        android:id="@+id/linearLayoutTimes"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/insertTime"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical" >
+	<RelativeLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="250dp"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal"
+	    tools:context=".MainActivity" >
 	    
-	    <TextView
-	        android:id="@+id/deliveryTime"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:layout_marginTop="10dp"
-	        android:textSize="45sp"
-	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    <TimePicker
-	        android:id="@+id/insertTime"
+	    <LinearLayout
+	        android:id="@+id/linearLayoutTimes"
 	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"/>
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/insertTime"
+	        android:layout_centerHorizontal="true"
+	        android:orientation="vertical" >
+		    
+	        <TextView
+		        android:id="@+id/deliveryTimeDescribition"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="left"
+		        android:layout_marginTop="5dp"
+		        android:text="@string/deliveryTimeDescribition" />
+	        
+		    <TextView
+		        android:id="@+id/deliveryTime"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center"
+		        android:textSize="40sp"
+		        android:textAppearance="?android:attr/textAppearanceLarge" />
+		
+		    <TextView
+		        android:id="@+id/insertTimeeDescribition"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="left"
+		        android:text="@string/insertTimeeDescribition" />
+		    
+		    <TimePicker
+		        android:id="@+id/insertTime"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"/>
+		    
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/linearLayoutSpins"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/linearLayoutTimes"
+	        android:layout_centerHorizontal="true"
+	        android:orientation="vertical" >
+	        
+	        <TextView
+		        android:id="@+id/spinnerBankDescribition"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="left"
+		        android:layout_marginTop="10dp"
+		        android:text="@string/spinnerBankDescribition" />
+	        
+	        <Spinner
+	            android:id="@+id/spinnerBank1"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="5dp" />
+	       
+	        <Spinner
+	            android:id="@+id/spinnerBank2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="5dp" />
+	
+	    </LinearLayout>
 	    
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutSpins"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutTimes"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:orientation="vertical" >
-        
-        <Spinner
-            android:id="@+id/spinnerBank1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-       
-         <Spinner
-            android:id="@+id/spinnerBank2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
-
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/linearLayoutButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutSpins"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/buttonFind"
-            style="@style/ButtonText"
-            android:layout_width="120dp"
-            android:background="@drawable/button_black"
-            android:text="@string/buttonFind"
-            android:layout_marginTop="20dp" />
-
-        <Button
-            android:id="@+id/buttonReset"
-            style="@style/ButtonText"
-            android:layout_width="120dp"
-            android:background="@drawable/button_black"
-            android:text="@string/buttonReset"
-            android:layout_marginTop="20dp" />
-    </LinearLayout>
-
-  
-
-</RelativeLayout>
+	    <LinearLayout
+	        android:id="@+id/linearLayoutButtons"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/linearLayoutSpins"
+	        android:layout_marginTop="10dp"
+	        android:orientation="horizontal" >
+	
+	        <Button
+	            android:id="@+id/buttonFind"
+	            style="@style/ButtonText"
+	            android:layout_width="120dp"
+	            android:background="@drawable/button_black"
+	            android:text="@string/buttonFind" />
+	
+	        <Button
+	            android:id="@+id/buttonReset"
+	            style="@style/ButtonText"
+	            android:layout_width="120dp"
+	            android:background="@drawable/button_black"
+	            android:text="@string/buttonReset"
+	            android:layout_marginTop="10dp" />
+	    </LinearLayout>
+	
+	</RelativeLayout>
+</ScrollView>

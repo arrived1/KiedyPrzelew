@@ -24,8 +24,8 @@ public class MainActivity extends Activity {
 		
 		setTimePickerProperties();
 		
-		addItemsToSpinnersList(banks, R.id.spinnerBank1, "Wybierz bank");
-		addItemsToSpinnersList(banks, R.id.spinnerBank2, "Wybierz bank");
+		addItemsToSpinnersList(banks, R.id.spinnerBank1, "Przelew z banku");
+		addItemsToSpinnersList(banks, R.id.spinnerBank2, "Przelew do banku");
 
 		addListenerOnButtonSearch(banks, paymentTime);
 		addListenerOnButtonReset();
