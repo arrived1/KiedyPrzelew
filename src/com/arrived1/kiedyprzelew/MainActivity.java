@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private Date paymentTime;
@@ -33,11 +32,8 @@ public class MainActivity extends Activity {
 	}
 
 	public void addListenerOnButtonSearch(BankDatabase banks, Date paymentTime) {
-//		System.out.println("DUPA, Ktos wcisnal przycisk szukaj");
 		final Button button = (Button)findViewById(R.id.buttonFind);
-		
-//		System.out.println("DUPA, Buduje obiekt ButtonFind, zaraz bede wolal konstruktor");
-		button.setOnClickListener(new ButtonFind(this, R.id.buttonFind, banks, paymentTime));
+		button.setOnClickListener(new ButtonFind(this, R.id.buttonFind, banks));
 	}
 	
 	public void addListenerOnButtonReset() {

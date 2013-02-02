@@ -1,6 +1,5 @@
 package com.arrived1.kiedyprzelew;
 
-import java.text.ParseException;
 import java.util.Vector;
 
 public class Bank {
@@ -10,18 +9,44 @@ public class Bank {
 	
 	public Bank(String bankName) {
 		String[] tmp = bankName.split(",");
-		
-//		System.out.println("DUPA, Jestem w klasie Button");
-		
 		BankName = tmp[0];
 		TimeOut = setVector(tmp[1]);		
 		TimeIn = setVector(tmp[2]);
-		
-//		System.out.println("DUPA, W klasie button sparsowalem nazwy abnkow i godziny przelewow");
 	}
 
-	public Date getNearestIncomingTime(Date t) {
-		Date result = new Date(24, 60);
+	public Date getNearestOutgoingTime(Date t)  {
+		Date result = new Date(23, 59);
+		
+		System.out.println("DUPA, Dostalem date: " + t.toString());
+		
+		for(int i = 0; i < TimeOut.size(); i++) {
+			System.out.println("DUPA, <<<<<<<<< " + i + " >>>>>>>>>>>>>>");
+			Date diff = new Date(TimeOut.elementAt(i).h - t.h, TimeOut.elementAt(i).h - t.m);
+			System.out.println("DUPA, diff date: " + diff.toString());
+			
+			if(t.lessThan(TimeOut.elementAt(0))) {
+				System.out.println("DUPA, otrzymana data mniejssza niz diff");
+				if(diff.lessThan(result)) {
+					System.out.println("DUPA, otrzymana data mniejssza niz result");
+					result = diff;
+				}
+			}
+			else if(t.greaterThan(TimeOut.elementAt(TimeOut.size() - 1))) {
+				System.out.println("DUPA, otrzymana data wieksza niz diff");
+				if(diff.greaterThan(result)) {
+					System.out.println("DUPA, otrzymana data wieksza niz result");
+					result = diff;
+				}
+			}
+			else 
+				System.out.println("DUPA, result == diff");
+				result = diff;	
+		}
+		return result;
+	}
+	
+	public Date getNearestIncomingTime(Date t)  {
+		Date result = new Date();
 		
 		for(int i = 0; i < TimeIn.size(); i++) {
 			Date diff = new Date(TimeIn.elementAt(i).h - t.h, TimeIn.elementAt(i).h - t.m);
@@ -32,28 +57,6 @@ public class Bank {
 				}
 			}
 			else if(t.greaterThan(TimeIn.elementAt(TimeIn.size() - 1))) {
-				if(diff.greaterThan(result)) {
-					result = diff;
-				}
-			}
-			else 
-				result = diff;	
-		}
-		return result;
-	}
-	
-	public Date getNearestOutgoingTime(Date t) throws ParseException {
-		Date result = new Date(24, 60);
-		
-		for(int i = 0; i < TimeOut.size(); i++) {
-			Date diff = new Date(TimeOut.elementAt(i).h - t.h, TimeOut.elementAt(i).h - t.m);
-
-			if(t.lessThan(TimeOut.elementAt(0))) {
-				if(diff.lessThan(result)) {
-					result = diff;
-				}
-			}
-			else if(t.greaterThan(TimeOut.elementAt(TimeOut.size() - 1))) {
 				if(diff.greaterThan(result)) {
 					result = diff;
 				}

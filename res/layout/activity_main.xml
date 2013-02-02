@@ -4,27 +4,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/deliveryTime"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutTimes"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/insertTime"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="45sp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TimePicker
-        android:id="@+id/insertTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/deliveryTime"
-        android:layout_centerHorizontal="true" />
+        android:orientation="vertical" >
+	    
+	    <TextView
+	        android:id="@+id/deliveryTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="10dp"
+	        android:textSize="45sp"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+	    <TimePicker
+	        android:id="@+id/insertTime"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"/>
+	    
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutSpins"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/insertTime"
+        android:layout_below="@+id/linearLayoutTimes"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:orientation="vertical" >
@@ -32,8 +40,7 @@
         <Spinner
             android:id="@+id/spinnerBank1"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_height="wrap_content" />
        
          <Spinner
             android:id="@+id/spinnerBank2"
