@@ -32,8 +32,20 @@ class Date {
 		return false;
 	}
 	
+	public Boolean greaterEqualThan(Date t) {
+		if((h >= t.h) || (h == t.h && m >= t.m))
+			return true;
+		return false;
+	}
+	
 	public Boolean lessThan(Date t) {
 		if((h < t.h) || (h == t.h && m < t.m))
+			return true;
+		return false;
+	}
+	
+	public Boolean lessEqualThan(Date t) {
+		if((h <= t.h) || (h == t.h && m <= t.m))
 			return true;
 		return false;
 	}

@@ -2,6 +2,8 @@ package com.arrived1.kiedyprzelew;
 
 import java.util.Vector;
 
+import android.R.bool;
+
 public class Bank {
 	private String BankName = "";
 	private Vector<Date> TimeOut = new Vector<Date>();
@@ -14,38 +16,42 @@ public class Bank {
 		TimeIn = setVector(tmp[2]);
 	}
 
-	public Date getNearestOutgoingTime(Date t)  {
-		Date result = new Date();
-		
-		System.out.println("DUPA, Dostalem date: " + t.toString());
-		
-		for(int i = 0; i < TimeOut.size(); i++) {
-			System.out.println("DUPA, <<<<<<<<< " + i + " >>>>>>>>>>>>>>");
-			Date diff = new Date(TimeOut.elementAt(i).h - t.h, TimeOut.elementAt(i).m - t.m);
-			diff.abs();
-			System.out.println("DUPA, diff date: " + diff.toString());
-			
-			if(t.lessThan(TimeOut.elementAt(0))) {
-				System.out.println("DUPA, otrzymana data mniejssza niz diff");
-				if(diff.lessThan(result)) {
-					System.out.println("DUPA, otrzymana data mniejssza niz result");
-					result = diff;
-				}
-			}
-			else if(t.greaterThan(TimeOut.elementAt(TimeOut.size() - 1))) {
-				System.out.println("DUPA, otrzymana data wieksza niz diff");
-				if(diff.greaterThan(result)) {
-					System.out.println("DUPA, otrzymana data wieksza niz result");
-					result = diff;
-				}
-			}
-			else 
-				System.out.println("DUPA, result == diff");
-				result = diff;	
-		}
-		System.out.println("DUPA, na koniec zwracam: " + result.toString());
-		return result;
+	
+	private Boolean checkLessThanFirst(Date t) {
+		if(t.lessThan(TimeOut.elementAt(0)))
+			return true;
+		return false;
 	}
+	
+	private Boolean checkBeetwen(Date t, int from, int to) {
+		if(t.greaterEqualThan(TimeOut.elementAt(from)) && t.lessThan(TimeOut.elementAt(to)))
+			return true;
+		return false;
+	}
+	
+	private Boolean checkGreaterThanLast(Date t) {
+		if(t.greaterEqualThan(TimeOut.elementAt(TimeOut.size() - 1)))
+			return true;
+		return false;
+	}
+	
+	
+	public Date getNearestOutgoingTime(Date t)  {
+		if(checkLessThanFirst(t))
+			return TimeOut.elementAt(0);
+		if(checkBeetwen(t, 0, 1))
+			return TimeOut.elementAt(1);
+		if(checkBeetwen(t, 1, 2))
+			return TimeOut.elementAt(2);
+		if(TimeOut.size() > 3)
+			if(checkBeetwen(t, 2, 3))
+				return TimeOut.elementAt(3);
+		if(checkGreaterThanLast(t))
+			return TimeOut.elementAt(0);	
+		return new Date();
+	}
+	
+	
 	
 	public Date getNearestIncomingTime(Date t)  {
 		Date result = new Date();
