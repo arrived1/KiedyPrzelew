@@ -41,4 +41,11 @@ class Date {
 	public String toString() {
 		return Integer.toString(h) + ":" + Integer.toString(m);
 	}
+	
+	public void abs() {
+		if (h < 0)
+			h = h * (-1);
+		if (m < 0)
+			m = m * (-1);
+	}
 }

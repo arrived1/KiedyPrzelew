@@ -15,13 +15,14 @@ public class Bank {
 	}
 
 	public Date getNearestOutgoingTime(Date t)  {
-		Date result = new Date(23, 59);
+		Date result = new Date();
 		
 		System.out.println("DUPA, Dostalem date: " + t.toString());
 		
 		for(int i = 0; i < TimeOut.size(); i++) {
 			System.out.println("DUPA, <<<<<<<<< " + i + " >>>>>>>>>>>>>>");
-			Date diff = new Date(TimeOut.elementAt(i).h - t.h, TimeOut.elementAt(i).h - t.m);
+			Date diff = new Date(TimeOut.elementAt(i).h - t.h, TimeOut.elementAt(i).m - t.m);
+			diff.abs();
 			System.out.println("DUPA, diff date: " + diff.toString());
 			
 			if(t.lessThan(TimeOut.elementAt(0))) {
@@ -42,6 +43,7 @@ public class Bank {
 				System.out.println("DUPA, result == diff");
 				result = diff;	
 		}
+		System.out.println("DUPA, na koniec zwracam: " + result.toString());
 		return result;
 	}
 	
