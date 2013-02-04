@@ -31,6 +31,12 @@ public class ButtonFind extends MyButton {
 
 		TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
 		pokazCzas.setText(doBankuPrzychodzacy.toString());
+
+		TextView nastepnegoDnia = (TextView)actv.findViewById(R.id.nextDay);
+		nastepnegoDnia.setText("");
+		if(zBankuWychodzacy.isNextDay()) {
+			nastepnegoDnia.setText("Nastêpnego dnia");
+		}
 	}
 
 }

@@ -21,6 +21,12 @@ class Date {
 		this.m = Integer.parseInt(hourAndMin[1]);
 	}
 	
+	public Date(Date d) {
+		h = d.h;
+		m = d.m;
+		nextDay = d.nextDay;
+	}
+	
 	public void setNextDay(Boolean day) {
 		nextDay = day;
 	}

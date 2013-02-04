@@ -26,9 +26,11 @@ public class Bank {
 		if(TimeOut.size() > maxTimeOutSizePerBank)
 			if(checkBeetwen(TimeOut, t, 2, 3))
 				return TimeOut.elementAt(3);
-		if(checkGreaterThanLast(TimeOut, t))
-			//TODO: dodac dnia nastepnego
-			return TimeOut.elementAt(0);	
+		if(checkGreaterThanLast(TimeOut, t)) {
+			Date date = new Date(TimeOut.elementAt(0));
+			date.setNextDay(true);
+			return date;
+		}
 		return new Date();
 	}
 	
@@ -40,9 +42,11 @@ public class Bank {
 		if(TimeIn.size() > maxTimeInSizePerBank)
 			if(checkBeetwen(TimeIn, t, 1, 2))
 				return TimeIn.elementAt(2);
-		if(checkGreaterThanLast(TimeIn, t))
-			//TODO: dodac dnia nastepnego
-			return TimeIn.elementAt(0);
+		if(checkGreaterThanLast(TimeIn, t)) {
+			Date date = new Date(TimeIn.elementAt(0));
+			date.setNextDay(true);
+			return date;
+		}
 		return new Date();
 	}
 
