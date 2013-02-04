@@ -27,6 +27,11 @@
 	
 	 <string name="aboutProgramTxt">Kiedy Przelew\n 
                                 Copyright 2013\n\n\n
+                                
+                                Aplikacja pobiera czas dokonania przelewu, nazwę banku, z którego wykonano przelew oraz 
+                                nazwę banmku, do którego przelew został wysłany a następnie wyświetla, o której 
+                                godzinie środki powinny pojawić sie w docelowym banku.\n\n
+                                Podane czasy zaksiegowania przelewów zostały pobrane z oficjalnych stron polskich banków.\n\n\n
                                
                                 
                                 Aplikacja storzona i opublikowana\n
