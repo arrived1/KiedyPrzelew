@@ -1,8 +1,9 @@
 package com.arrived1.kiedyprzelew;
 
 class Date {
-	public int h;
-	public int m;
+	private int h;
+	private int m;
+	private Boolean nextDay = false;
 	
 	public Date() {
 		this.h = 0;
@@ -20,16 +21,12 @@ class Date {
 		this.m = Integer.parseInt(hourAndMin[1]);
 	}
 	
-	public Boolean equal(Date t) {
-		if(h == t.h && m == t.m)
-			return true;
-		return false;
+	public void setNextDay(Boolean day) {
+		nextDay = day;
 	}
 	
-	public Boolean greaterThan(Date t) {
-		if((h > t.h) || (h == t.h && m > t.m))
-			return true;
-		return false;
+	public Boolean isNextDay() {
+		return nextDay;
 	}
 	
 	public Boolean greaterEqualThan(Date t) {
@@ -44,12 +41,6 @@ class Date {
 		return false;
 	}
 	
-	public Boolean lessEqualThan(Date t) {
-		if((h <= t.h) || (h == t.h && m <= t.m))
-			return true;
-		return false;
-	}
-	
 	public String toString() {
 		String txt = Integer.toString(h) + ":";
 		if(m == 0)
@@ -57,12 +48,5 @@ class Date {
 		else
 			txt += Integer.toString(m);
 		return txt; 
-	}
-	
-	public void abs() {
-		if (h < 0)
-			h = h * (-1);
-		if (m < 0)
-			m = m * (-1);
 	}
 }
