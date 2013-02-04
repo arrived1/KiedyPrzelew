@@ -4,6 +4,7 @@
 
 	<RelativeLayout
 	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
 	    xmlns:tools="http://schemas.android.com/tools"
 	    android:layout_width="250dp"
 	    android:layout_height="wrap_content"
@@ -106,6 +107,15 @@
 	            android:background="@drawable/button_black"
 	            android:text="@string/buttonReset" />
 	    </LinearLayout>
+	    
+	    <com.google.ads.AdView 
+	         android:id="@+id/adView"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             ads:adUnitId="a151102aafafd27"
+             ads:adSize="BANNER"
+             ads:loadAdsOnCreate="true" />   
 	
 	</RelativeLayout>
 </ScrollView>

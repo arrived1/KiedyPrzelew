@@ -3,6 +3,9 @@ package com.arrived1.kiedyprzelew;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -22,6 +25,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		addAdView();
 		
 		BankDatabase banks = new BankDatabase(this);
 		
@@ -58,20 +63,15 @@ public class MainActivity extends Activity {
 	        	Intent myIntent = new Intent(MainActivity.this, AboutProgram.class);
 	            startActivity(myIntent);
 	            return true;
-//	        case R.id.help:
-//	            showHelp();
-//	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
 	
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.activity_main, menu);
-//		return true;
-//	}
+	private void addAdView() {
+		AdView ad = (AdView) findViewById(R.id.adView);
+		ad.loadAd(new AdRequest());
+	}
 	
 	private void setTimePickerProperties() {
 		final TimePicker picker = (TimePicker)findViewById(R.id.insertTime);
