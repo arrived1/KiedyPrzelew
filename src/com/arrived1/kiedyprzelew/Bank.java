@@ -34,8 +34,7 @@ public class Bank {
 			return true;
 		return false;
 	}
-	
-	
+
 	public Date getNearestOutgoingTime(Date t)  {
 		if(checkLessThanFirst(t))
 			return TimeOut.elementAt(0);
