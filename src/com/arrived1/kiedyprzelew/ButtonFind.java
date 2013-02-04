@@ -1,10 +1,12 @@
 package com.arrived1.kiedyprzelew;
 
 import android.app.Activity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class ButtonFind extends MyButton {
 	private BankDatabase banks;
@@ -19,23 +21,31 @@ public class ButtonFind extends MyButton {
 		Date paymentTime = new Date(picker.getCurrentHour(), picker.getCurrentMinute());
 
 		Spinner spinn1 = (Spinner)actv.findViewById(R.id.spinnerBank1);
-		String zBankuNazwa = spinn1.getSelectedItem().toString();
-		Bank zBanku = banks.findBank(zBankuNazwa);
-		
 		Spinner spinn2 = (Spinner)actv.findViewById(R.id.spinnerBank2);
-		String doBankuNazwa = spinn2.getSelectedItem().toString();
-		Bank doBanku = banks.findBank(doBankuNazwa);
-
-		Date zBankuWychodzacy = zBanku.getNearestOutgoingTime(paymentTime);
-		Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
-
-		TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
-		pokazCzas.setText(doBankuPrzychodzacy.toString());
-
-		TextView nastepnegoDnia = (TextView)actv.findViewById(R.id.nextDay);
-		nastepnegoDnia.setText("");
-		if(zBankuWychodzacy.isNextDay()) {
-			nastepnegoDnia.setText("Nastêpnego dnia");
+		
+		if(spinn1.getSelectedItemPosition() == 0 || spinn2.getSelectedItemPosition() == 0) {
+			Toast toast= Toast.makeText(actv.getApplicationContext(), "Wybierz bank!", Toast.LENGTH_SHORT);  
+					toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+					toast.show();
+		}
+		else {
+			String zBankuNazwa = spinn1.getSelectedItem().toString();
+			String doBankuNazwa = spinn2.getSelectedItem().toString();
+			
+			Bank zBanku = banks.findBank(zBankuNazwa);
+			Bank doBanku = banks.findBank(doBankuNazwa);
+	
+			Date zBankuWychodzacy = zBanku.getNearestOutgoingTime(paymentTime);
+			Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
+	
+			TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
+			pokazCzas.setText(doBankuPrzychodzacy.toString());
+	
+			TextView nastepnegoDnia = (TextView)actv.findViewById(R.id.nextDay);
+			nastepnegoDnia.setText("");
+			if(zBankuWychodzacy.isNextDay()) {
+				nastepnegoDnia.setText("Nastêpnego dnia");
+			}
 		}
 	}
 
