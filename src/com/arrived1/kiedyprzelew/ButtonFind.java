@@ -1,13 +1,10 @@
 package com.arrived1.kiedyprzelew;
 
-import java.text.ParseException;
-
 import android.app.Activity;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 public class ButtonFind extends MyButton {
 	private BankDatabase banks;
@@ -28,21 +25,12 @@ public class ButtonFind extends MyButton {
 		Spinner spinn2 = (Spinner)actv.findViewById(R.id.spinnerBank2);
 		String doBankuNazwa = spinn2.getSelectedItem().toString();
 		Bank doBanku = banks.findBank(doBankuNazwa);
-		
 
 		Date zBankuWychodzacy = zBanku.getNearestOutgoingTime(paymentTime);
-//		System.out.println("DUPA, Czas wychodzacej kasy: " + zBankuWychodzacy.toString());
-		
 		Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
-		System.out.println("DUPA, Czas otrzymanje kasy: " + doBankuPrzychodzacy.toString());
-//		
-//		TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
-	
 
-			
-		
-		
-//		Toast.makeText(actv.getApplicationContext(), "Dziala, button Szukaj!", Toast.LENGTH_SHORT).show(); 
+		TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
+		pokazCzas.setText(doBankuPrzychodzacy.toString());
 	}
 
 }

@@ -12,30 +12,10 @@ public class Bank {
 	public Bank(String bankName) {
 		String[] tmp = bankName.split(",");
 		BankName = tmp[0];
-		TimeOut = setVector(tmp[1]);		
+		TimeOut = setVector(tmp[1]);
 		TimeIn = setVector(tmp[2]);
 	}
 
-	
-	private Boolean checkLessThanFirst(Vector<Date> tab, Date t) {
-		if(t.lessThan(tab.elementAt(0)))
-			return true;
-		return false;
-	}
-	
-	private Boolean checkBeetwen(Vector<Date> tab, Date t, int from, int to) {
-		if(t.greaterEqualThan(tab.elementAt(from)) && t.lessThan(tab.elementAt(to)))
-			return true;
-		return false;
-	}
-	
-	private Boolean checkGreaterThanLast(Vector<Date> tab, Date t) {
-		if(t.greaterEqualThan(tab.elementAt(tab.size() - 1)))
-			return true;
-		return false;
-	}
-
-	
 	public Date getNearestOutgoingTime(Date t)  {
 		if(checkLessThanFirst(TimeOut, t))
 			return TimeOut.elementAt(0);
@@ -68,6 +48,24 @@ public class Bank {
 
 	public String getName() {
 		return BankName;
+	}
+	
+	private Boolean checkLessThanFirst(Vector<Date> tab, Date t) {
+		if(t.lessThan(tab.elementAt(0)))
+			return true;
+		return false;
+	}
+	
+	private Boolean checkBeetwen(Vector<Date> tab, Date t, int from, int to) {
+		if(t.greaterEqualThan(tab.elementAt(from)) && t.lessThan(tab.elementAt(to)))
+			return true;
+		return false;
+	}
+	
+	private Boolean checkGreaterThanLast(Vector<Date> tab, Date t) {
+		if(t.greaterEqualThan(tab.elementAt(tab.size() - 1)))
+			return true;
+		return false;
 	}
 	
 	private Vector<Date> setVector(String t) {

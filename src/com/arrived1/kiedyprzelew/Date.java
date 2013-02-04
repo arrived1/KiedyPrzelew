@@ -51,7 +51,12 @@ class Date {
 	}
 	
 	public String toString() {
-		return Integer.toString(h) + ":" + Integer.toString(m);
+		String txt = Integer.toString(h) + ":";
+		if(m == 0)
+			txt += "00";
+		else
+			txt += Integer.toString(m);
+		return txt; 
 	}
 	
 	public void abs() {
