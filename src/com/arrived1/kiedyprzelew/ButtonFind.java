@@ -31,10 +31,10 @@ public class ButtonFind extends MyButton {
 		
 
 		Date zBankuWychodzacy = zBanku.getNearestOutgoingTime(paymentTime);
-		System.out.println("DUPA, Czas wychodzacej kasy: " + zBankuWychodzacy.toString());
+//		System.out.println("DUPA, Czas wychodzacej kasy: " + zBankuWychodzacy.toString());
 		
-//		Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
-//		System.out.println("DUPA, Czas otrzymanje kasy: " + doBankuPrzychodzacy.toString());
+		Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
+		System.out.println("DUPA, Czas otrzymanje kasy: " + doBankuPrzychodzacy.toString());
 //		
 //		TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
 	
