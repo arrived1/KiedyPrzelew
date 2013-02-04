@@ -5,7 +5,10 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -43,10 +46,32 @@ public class MainActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.activity_main, menu);
+	    return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case R.id.about_program:
+	        	Intent myIntent = new Intent(MainActivity.this, AboutProgram.class);
+	            startActivity(myIntent);
+	            return true;
+//	        case R.id.help:
+//	            showHelp();
+//	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.activity_main, menu);
+//		return true;
+//	}
 	
 	private void setTimePickerProperties() {
 		final TimePicker picker = (TimePicker)findViewById(R.id.insertTime);
