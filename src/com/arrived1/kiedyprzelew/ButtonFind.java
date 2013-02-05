@@ -28,6 +28,11 @@ public class ButtonFind extends MyButton {
 					toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
 					toast.show();
 		}
+		else if(spinn1.getSelectedItemPosition() == spinn2.getSelectedItemPosition()) {
+			TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
+			pokazCzas.setTextSize(21.f);
+			pokazCzas.setText("Przelew natychmiastowy");
+		}
 		else {
 			String zBankuNazwa = spinn1.getSelectedItem().toString();
 			String doBankuNazwa = spinn2.getSelectedItem().toString();
@@ -44,7 +49,7 @@ public class ButtonFind extends MyButton {
 			TextView nastepnegoDnia = (TextView)actv.findViewById(R.id.nextDay);
 			nastepnegoDnia.setText("");
 			if(zBankuWychodzacy.isNextDay()) {
-				nastepnegoDnia.setText("Nastêpnego dnia");
+				nastepnegoDnia.setText("NastÄ™pnego dnia");
 			}
 		}
 	}
