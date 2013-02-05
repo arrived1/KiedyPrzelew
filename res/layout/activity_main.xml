@@ -7,24 +7,6 @@
     android:layout_gravity="center_horizontal"
     tools:context=".MainActivity" >
 
-<<<<<<< HEAD
-	<RelativeLayout
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
-	    xmlns:tools="http://schemas.android.com/tools"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center_horizontal"
-	    tools:context=".MainActivity" >
-	    
-	    <LinearLayout
-	        android:id="@+id/linearLayoutAllWidgets"
-	        android:layout_width="250dp"
-	        android:layout_height="wrap_content"
-	        android:layout_centerHorizontal="true"
-	        android:orientation="vertical" >
-	    
-=======
 	<ScrollView
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
@@ -34,17 +16,13 @@
 		    android:layout_width="250dp"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center_horizontal" >
-		    
->>>>>>> 8c8062f
+
 		    <LinearLayout
 		        android:id="@+id/linearLayoutTimes"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
 		        android:layout_below="@+id/insertTime"
 		        android:layout_centerHorizontal="true"
->>>>>>> 8c8062f
 		        android:orientation="vertical" >
 			    
 		        <TextView
@@ -88,11 +66,8 @@
 		        android:id="@+id/linearLayoutSpins"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
 		        android:layout_below="@+id/linearLayoutTimes"
 		        android:layout_centerHorizontal="true"
->>>>>>> 8c8062f
 		        android:orientation="vertical" >
 		        
 		        <TextView
@@ -120,10 +95,7 @@
 		        android:id="@+id/linearLayoutButtons"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
 		        android:layout_below="@id/linearLayoutSpins"
->>>>>>> 8c8062f
 		        android:layout_marginTop="5dp"
 		        android:orientation="horizontal" >
 		
@@ -141,18 +113,6 @@
 		            android:background="@drawable/button_black"
 		            android:text="@string/buttonReset" />
 		    </LinearLayout>
-<<<<<<< HEAD
-	    </LinearLayout>
-	    
-	    <com.google.ads.AdView 
-	         android:id="@+id/adView"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_alignParentBottom="true"
-             ads:adUnitId="a151102aafafd27"
-             ads:adSize="BANNER"
-             ads:loadAdsOnCreate="true" />   
-=======
 
 		</RelativeLayout>
 	</ScrollView>
@@ -164,7 +124,5 @@
 	             android:layout_alignParentBottom="true"
 	             ads:adUnitId="a151102aafafd27"
 	             ads:adSize="BANNER"
-	             ads:loadAdsOnCreate="true" />   
->>>>>>> 8c8062f
-	
+	             ads:loadAdsOnCreate="true" />
 </RelativeLayout>
