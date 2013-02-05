@@ -6,106 +6,109 @@
 	    xmlns:android="http://schemas.android.com/apk/res/android"
 	    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
 	    xmlns:tools="http://schemas.android.com/tools"
-	    android:layout_width="250dp"
+	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_gravity="center_horizontal"
 	    tools:context=".MainActivity" >
 	    
 	    <LinearLayout
-	        android:id="@+id/linearLayoutTimes"
-	        android:layout_width="fill_parent"
+	        android:id="@+id/linearLayoutAllWidgets"
+	        android:layout_width="250dp"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/insertTime"
 	        android:layout_centerHorizontal="true"
 	        android:orientation="vertical" >
-		    
-	        <TextView
-		        android:id="@+id/deliveryTimeDescribition"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="left"
-		        android:layout_marginTop="5dp"
-		        android:text="@string/deliveryTimeDescribition" />
-	        
-		    <TextView
-		        android:id="@+id/deliveryTime"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="center"
-		        android:textSize="40sp"
-		        android:textAppearance="?android:attr/textAppearanceLarge" />
-		    
-		     <TextView
-                android:id="@+id/nextDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:textStyle="bold" />
-		
-		    <TextView
-		        android:id="@+id/insertTimeeDescribition"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="left"
-		        android:text="@string/insertTimeeDescribition" />
-		    
-		    <TimePicker
-		        android:id="@+id/insertTime"
-		        android:layout_width="fill_parent"
-		        android:layout_height="180dp"/>
-		    
-	    </LinearLayout>
-	
-	    <LinearLayout
-	        android:id="@+id/linearLayoutSpins"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/linearLayoutTimes"
-	        android:layout_centerHorizontal="true"
-	        android:orientation="vertical" >
-	        
-	        <TextView
-		        android:id="@+id/spinnerBankDescribition"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="left"
-		        android:text="@string/spinnerBankDescribition" />
-	        
-	        <Spinner
-	            android:id="@+id/spinnerBank1"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_marginTop="5dp" />
-	       
-	        <Spinner
-	            android:id="@+id/spinnerBank2"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_marginTop="5dp" />
-	
-	    </LinearLayout>
 	    
-	    <LinearLayout
-	        android:id="@+id/linearLayoutButtons"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@id/linearLayoutSpins"
-	        android:layout_marginTop="5dp"
-	        android:orientation="horizontal" >
-	
-	        <Button
-	            android:id="@+id/buttonFind"
-	            style="@style/ButtonText"
-	            android:layout_width="120dp"
-	            android:background="@drawable/button_black"
-	            android:text="@string/buttonFind" />
-	
-	        <Button
-	            android:id="@+id/buttonReset"
-	            style="@style/ButtonText"
-	            android:layout_width="120dp"
-	            android:background="@drawable/button_black"
-	            android:text="@string/buttonReset" />
+		    <LinearLayout
+		        android:id="@+id/linearLayoutTimes"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+			    
+		        <TextView
+			        android:id="@+id/deliveryTimeDescribition"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="left"
+			        android:layout_marginTop="5dp"
+			        android:text="@string/deliveryTimeDescribition" />
+		        
+			    <TextView
+			        android:id="@+id/deliveryTime"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:textSize="40sp"
+			        android:textAppearance="?android:attr/textAppearanceLarge" />
+			    
+			     <TextView
+	                android:id="@+id/nextDay"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="right"
+	                android:textStyle="bold" />
+			
+			    <TextView
+			        android:id="@+id/insertTimeeDescribition"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="left"
+			        android:text="@string/insertTimeeDescribition" />
+			    
+			    <TimePicker
+			        android:id="@+id/insertTime"
+			        android:layout_width="fill_parent"
+			        android:layout_height="180dp"/>
+			    
+		    </LinearLayout>
+		
+		    <LinearLayout
+		        android:id="@+id/linearLayoutSpins"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		        
+		        <TextView
+			        android:id="@+id/spinnerBankDescribition"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="left"
+			        android:text="@string/spinnerBankDescribition" />
+		        
+		        <Spinner
+		            android:id="@+id/spinnerBank1"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_marginTop="5dp" />
+		       
+		        <Spinner
+		            android:id="@+id/spinnerBank2"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_marginTop="5dp" />
+		
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/linearLayoutButtons"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="5dp"
+		        android:orientation="horizontal" >
+		
+		        <Button
+		            android:id="@+id/buttonFind"
+		            style="@style/ButtonText"
+		            android:layout_width="120dp"
+		            android:background="@drawable/button_black"
+		            android:text="@string/buttonFind" />
+		
+		        <Button
+		            android:id="@+id/buttonReset"
+		            style="@style/ButtonText"
+		            android:layout_width="120dp"
+		            android:background="@drawable/button_black"
+		            android:text="@string/buttonReset" />
+		    </LinearLayout>
 	    </LinearLayout>
 	    
 	    <com.google.ads.AdView 
