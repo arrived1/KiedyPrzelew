@@ -36,7 +36,7 @@
 			    <TextView
 			        android:id="@+id/deliveryTime"
 			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
+			        android:layout_height="40dp"
 			        android:layout_gravity="center"
 			        android:textAppearance="?android:attr/textAppearanceLarge" />
 			    
@@ -57,7 +57,7 @@
 			    <TimePicker
 			        android:id="@+id/insertTime"
 			        android:layout_width="fill_parent"
-			        android:layout_height="180dp"/>
+			        android:layout_height="170dp"/>
 			    
 		    </LinearLayout>
 		
@@ -80,13 +80,13 @@
 		            android:id="@+id/spinnerBank1"
 		            android:layout_width="fill_parent"
 		            android:layout_height="wrap_content"
-		            android:layout_marginTop="5dp" />
+		            android:layout_marginTop="2dp" />
 		       
 		        <Spinner
 		            android:id="@+id/spinnerBank2"
 		            android:layout_width="fill_parent"
 		            android:layout_height="wrap_content"
-		            android:layout_marginTop="5dp" />
+		            android:layout_marginTop="2dp" />
 		
 		    </LinearLayout>
 		    

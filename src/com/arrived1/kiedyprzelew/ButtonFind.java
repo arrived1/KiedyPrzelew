@@ -44,7 +44,7 @@ public class ButtonFind extends MyButton {
 			Date doBankuPrzychodzacy = doBanku.getNearestIncomingTime(zBankuWychodzacy);
 	
 			TextView pokazCzas = (TextView)actv.findViewById(R.id.deliveryTime);
-			pokazCzas.setTextSize(40.f);
+			pokazCzas.setTextSize(36.f);
 			pokazCzas.setText(doBankuPrzychodzacy.toString());
 	
 			TextView nastepnegoDnia = (TextView)actv.findViewById(R.id.nextDay);
