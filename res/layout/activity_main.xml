@@ -58,7 +58,8 @@
 			    <TimePicker
 			        android:id="@+id/insertTime"
 			        android:layout_width="fill_parent"
-			        android:layout_height="170dp"/>
+			        android:layout_height="fill_parent" />
+			    <!-- android:layout_height="170dp" -->
 			    
 		    </LinearLayout>
 		
