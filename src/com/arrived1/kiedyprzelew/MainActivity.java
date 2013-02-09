@@ -60,8 +60,12 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	        case R.id.about_program:
-	        	Intent myIntent = new Intent(MainActivity.this, AboutProgram.class);
-	            startActivity(myIntent);
+	        	Intent myIntentAboutPtogram = new Intent(MainActivity.this, AboutProgram.class);
+	            startActivity(myIntentAboutPtogram);
+	            return true;
+	        case R.id.bank_list:
+	        	Intent myIntentBank = new Intent(MainActivity.this, BankList.class);
+	            startActivity(myIntentBank);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

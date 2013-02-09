@@ -3,6 +3,9 @@
 
     <string name="app_name">Kiedy Przelew</string>
     <string name="about_program">O aplikacji</string>
+    <string name="bank_list">Lista obłsugiwanych banków</string>
+    
+    <string name="bank_list_txt">Lista obłsugiwanych banków:</string>
 	
     <string name="buttonFind">Znajdź</string>
     <string name="buttonReset">Reset</string>
